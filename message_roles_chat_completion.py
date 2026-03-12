@@ -1,4 +1,10 @@
 
+"""
+Exercise: OpenAI API Message Roles
+Concept: Using system, user, and assistant roles in a chat completion request
+Goal: Show how conversation context is structured for the model
+"""
+
 from openai import OpenAI
 
 client = OpenAI()
