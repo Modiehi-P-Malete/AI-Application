@@ -1,0 +1,16 @@
+from openai import OpenAI
+
+client = OpenAI()
+
+prompt = """
+Write a catchy slogan for a restaurant that offers a mix of Italian and Chinese cuisine.
+The restaurant can be either fine-dining or fast-food.
+"""
+
+response = client.chat.completions.create(
+  model="gpt-4o-mini",
+  messages=[{"role": "user", "content": prompt}],
+  max_tokens=100
+)
+
+print(response.choices[0].message.content)
