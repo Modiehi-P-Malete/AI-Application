@@ -4,9 +4,15 @@ Concept: Encapsulating API requests inside a helper function
 Goal: Simplify prompt experimentation by reusing the same API call logic
 """
 
-from openai import OpenAI
+import os
+try:
+    from openai import OpenAI
+except ImportError as exc:
+    raise ImportError(
+        "The openai package is required. Install it with 'pip install openai'."
+    ) from exc
 
-client = OpenAI()
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def get_response(prompt):
     response = client.chat.completions.create(
